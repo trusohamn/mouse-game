@@ -1,10 +1,15 @@
 .App {
   text-align: center;
+  background-color: gray;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Element {
+  background-color: red;
+  width: 2vw;
+  height: 2vh;
+  position: absolute;
 }
 
 @media (prefers-reduced-motion: no-preference) {
