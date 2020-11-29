@@ -1,13 +1,24 @@
 import "./App.css";
 import { useState } from "react";
+import dragon from "./dragon.gif";
 
 const Element = ({ xy }) => {
   const style = {
     top: `${xy[1]}px`,
     left: `${xy[0]}px`,
   };
-  console.log(style);
-  return <div className="Element" style={style}></div>;
+
+  // TODO read it from properties of image
+  const styleImage = {
+    marginLeft: "-80px",
+    marginTop: "-120px",
+  };
+
+  return (
+    <div className="Element" style={style}>
+      <img src={dragon} alt={dragon} style={styleImage}></img>
+    </div>
+  );
 };
 
 function App() {
