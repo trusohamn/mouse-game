@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./App.css";
 import { useState, useEffect } from "react";
 import dragon from "./dragon.gif";
