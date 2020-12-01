@@ -20,7 +20,7 @@ const Element = ({ xy, movement }) => {
   );
 };
 
-const Final = ({ position }) => {
+const Final = ({ position, found }) => {
   const stylePosition = {
     top: `${position[1] - 50}px`,
     left: `${position[0] - 50}px`,
@@ -28,7 +28,12 @@ const Final = ({ position }) => {
 
   return (
     <div className="Element" style={stylePosition}>
-      <img src={dragonEgg} alt={dragonEgg} width={100} heigth={100}></img>
+      <img
+        src={found ? babyDragon : dragonEgg}
+        alt={dragonEgg}
+        width={100}
+        heigth={100}
+      ></img>
     </div>
   );
 };
@@ -37,40 +42,42 @@ const App = () => {
   const [height, setHeight] = useState(0);
   const [xy, setXy] = useState([0, 0]);
   const [movement, setMovement] = useState([0, 0]);
+  const [found, setFound] = useState(false);
+  const [finalPosition, setFinalPosition] = useState(null);
 
   useEffect(() => {
     const { innerWidth, innerHeight } = window;
     setWidth(innerWidth);
     setHeight(innerHeight);
-  }, []);
+    if (width && height) {
+      setFinalPosition([
+        Math.random() * width * 0.9,
+        Math.random() * height * 0.9,
+      ]);
+    }
+  }, [height, width]);
+
+  useEffect(() => {
+    if (
+      !!finalPosition &&
+      Math.abs(xy[0] - finalPosition[0] < 20) &&
+      Math.abs(xy[1] - finalPosition[1]) < 20
+    ) {
+      setFound(true);
+    }
+  }, [xy, finalPosition]);
 
   const onMouseMove = (e) => {
     setMovement([e.movementX, e.movementY]);
     setXy([e.clientX, e.clientY]);
   };
 
-  const finalPosition = useMemo(
-    () => [Math.random() * width * 0.9, Math.random() * height * 0.9],
-    [height, width]
-  );
-
-  if (
-    Math.abs(xy[0] - finalPosition[0] < 20) &&
-    Math.abs(xy[1] - finalPosition[1]) < 20
-  ) {
-    return (
-      <div className="App">
-        <div>
-          <img src={babyDragon} alt={babyDragon}></img>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="App" onMouseMove={onMouseMove}>
       <Element xy={xy} movement={movement}></Element>
-      <Final position={finalPosition}></Final>
+      {!!finalPosition && (
+        <Final position={finalPosition} found={found}></Final>
+      )}
     </div>
   );
 };
