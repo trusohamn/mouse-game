@@ -3,7 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import dragon from "./dragon.gif";
 import dragonEgg from "./dragonEgg.png";
-import dragonBaby from "./baby-dragon.jpg";
+import dragonBaby from "./babyDragon.png";
 
 const iconWidth = 100;
 const iconHeight = 100;
@@ -53,8 +53,8 @@ const Found = ({ position }) => {
       <img
         src={dragonBaby}
         alt={dragonBaby}
-        width={iconWidth}
-        heigth={iconHeight}
+        width={iconWidth * 1.6}
+        heigth={iconHeight * 1.6}
       ></img>
     </div>
   );
