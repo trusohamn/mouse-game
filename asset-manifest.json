@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/mouse-game/static/css/main.8af85026.chunk.css",
-    "main.js": "/mouse-game/static/js/main.42e834fc.chunk.js",
-    "main.js.map": "/mouse-game/static/js/main.42e834fc.chunk.js.map",
-    "runtime-main.js": "/mouse-game/static/js/runtime-main.09857187.js",
-    "runtime-main.js.map": "/mouse-game/static/js/runtime-main.09857187.js.map",
-    "static/js/2.7349bf6b.chunk.js": "/mouse-game/static/js/2.7349bf6b.chunk.js",
-    "static/js/2.7349bf6b.chunk.js.map": "/mouse-game/static/js/2.7349bf6b.chunk.js.map",
-    "static/js/3.560a9197.chunk.js": "/mouse-game/static/js/3.560a9197.chunk.js",
-    "static/js/3.560a9197.chunk.js.map": "/mouse-game/static/js/3.560a9197.chunk.js.map",
+    "main.css": "/mouse-game/static/css/main.0f80778c.chunk.css",
+    "main.js": "/mouse-game/static/js/main.f1665e1f.chunk.js",
+    "main.js.map": "/mouse-game/static/js/main.f1665e1f.chunk.js.map",
+    "runtime-main.js": "/mouse-game/static/js/runtime-main.38ef251f.js",
+    "runtime-main.js.map": "/mouse-game/static/js/runtime-main.38ef251f.js.map",
+    "static/js/2.c4f6ff49.chunk.js": "/mouse-game/static/js/2.c4f6ff49.chunk.js",
+    "static/js/2.c4f6ff49.chunk.js.map": "/mouse-game/static/js/2.c4f6ff49.chunk.js.map",
+    "static/js/3.715aa288.chunk.js": "/mouse-game/static/js/3.715aa288.chunk.js",
+    "static/js/3.715aa288.chunk.js.map": "/mouse-game/static/js/3.715aa288.chunk.js.map",
     "index.html": "/mouse-game/index.html",
-    "static/css/main.8af85026.chunk.css.map": "/mouse-game/static/css/main.8af85026.chunk.css.map",
-    "static/js/2.7349bf6b.chunk.js.LICENSE.txt": "/mouse-game/static/js/2.7349bf6b.chunk.js.LICENSE.txt",
+    "static/css/main.0f80778c.chunk.css.map": "/mouse-game/static/css/main.0f80778c.chunk.css.map",
+    "static/js/2.c4f6ff49.chunk.js.LICENSE.txt": "/mouse-game/static/js/2.c4f6ff49.chunk.js.LICENSE.txt",
     "static/media/baby-dragon.7e0810c7.jpg": "/mouse-game/static/media/baby-dragon.7e0810c7.jpg",
     "static/media/dragon.6db7f34f.gif": "/mouse-game/static/media/dragon.6db7f34f.gif",
     "static/media/dragonEgg.148d89e9.png": "/mouse-game/static/media/dragonEgg.148d89e9.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.09857187.js",
-    "static/js/2.7349bf6b.chunk.js",
-    "static/css/main.8af85026.chunk.css",
-    "static/js/main.42e834fc.chunk.js"
+    "static/js/runtime-main.38ef251f.js",
+    "static/js/2.c4f6ff49.chunk.js",
+    "static/css/main.0f80778c.chunk.css",
+    "static/js/main.f1665e1f.chunk.js"
   ]
 }
