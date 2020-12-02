@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import dragon from "./dragon.gif";
 import dragonEgg from "./dragonEgg.png";
 import dragonBaby from "./babyDragon.png";
+import sound from "./assets/sound.mp3";
+
+import { useAudio } from "./hooks";
 
 const iconWidth = 100;
 const iconHeight = 100;
@@ -68,6 +71,8 @@ const App = () => {
   const [found, setFound] = useState([]);
   const [finalPosition, setFinalPosition] = useState(null);
 
+  const [_, toggle] = useAudio(sound);
+
   const setupGoal = () =>
     setFinalPosition([
       Math.random() * width * 0.9 - iconWidth / 2,
@@ -87,6 +92,7 @@ const App = () => {
       Math.abs(xy[0] - finalPosition[0]) < iconWidth &&
       Math.abs(xy[1] - finalPosition[1]) < iconHeight
     ) {
+      toggle();
       setFound([...found, <Found position={[...finalPosition]}></Found>]);
       setupGoal();
     }
