@@ -27,7 +27,7 @@ const Mouse = ({ xy, movement }) => {
   );
 };
 
-const Goal = ({ position }) => {
+const Icon = ({ position, icon, scale = 1 }) => {
   const stylePosition = {
     top: `${position[1]}px`,
     left: `${position[0]}px`,
@@ -36,34 +36,19 @@ const Goal = ({ position }) => {
   return (
     <div className="absolute" style={stylePosition}>
       <img
-        src={dragonEgg}
-        alt={dragonEgg}
-        width={iconWidth}
-        heigth={iconHeight}
-      ></img>
-    </div>
-  );
-};
-
-const Found = ({ position }) => {
-  const stylePosition = {
-    top: `${position[1]}px`,
-    left: `${position[0]}px`,
-  };
-
-  return (
-    <div className="absolute" style={stylePosition}>
-      <img
-        src={dragonBaby}
-        alt={dragonBaby}
-        width={iconWidth * 1.6}
-        heigth={iconHeight * 1.6}
+        src={icon}
+        alt={icon}
+        width={iconWidth * scale}
+        heigth={iconHeight * scale}
       ></img>
     </div>
   );
 };
 
 const App = () => {
+  const iconFound = dragonBaby;
+  const iconGoal = dragonEgg;
+
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const [xy, setXy] = useState([0, 0]);
@@ -73,7 +58,7 @@ const App = () => {
 
   const [, toggle] = useAudio(sound);
 
-  const setupGoal = () =>
+  const setupNewGoal = () =>
     setGoalPosition([
       Math.random() * width * 0.9 - iconWidth / 2,
       Math.random() * height * 0.9 - iconHeight / 2,
@@ -83,7 +68,7 @@ const App = () => {
     const { innerWidth, innerHeight } = window;
     setWidth(innerWidth);
     setHeight(innerHeight);
-    if (width && height) setupGoal();
+    if (width && height) setupNewGoal();
   }, [height, width]);
 
   useEffect(() => {
@@ -93,8 +78,11 @@ const App = () => {
       Math.abs(xy[1] - goalPosition[1]) < iconHeight
     ) {
       toggle();
-      setFound([...found, <Found position={[...goalPosition]}></Found>]);
-      setupGoal();
+      setFound([
+        ...found,
+        <Icon position={[...goalPosition]} icon={iconFound} scale={1.6} />,
+      ]);
+      setupNewGoal();
     }
   }, [xy, goalPosition]);
 
@@ -106,7 +94,7 @@ const App = () => {
   return (
     <div className="App" onMouseMove={onMouseMove}>
       <Mouse xy={xy} movement={movement} />
-      {!!goalPosition && <Goal position={goalPosition} found={found} />}
+      {!!goalPosition && <Icon position={goalPosition} icon={iconGoal} />}
       {found}
     </div>
   );
