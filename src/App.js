@@ -21,20 +21,20 @@ const Mouse = ({ xy, movement }) => {
   };
 
   return (
-    <div className="Mouse" style={stylePosition}>
+    <div className="absolute" style={stylePosition}>
       <img src={dragon} alt={dragon}></img>
     </div>
   );
 };
 
-const Final = ({ position }) => {
+const Goal = ({ position }) => {
   const stylePosition = {
     top: `${position[1]}px`,
     left: `${position[0]}px`,
   };
 
   return (
-    <div className="Mouse" style={stylePosition}>
+    <div className="absolute" style={stylePosition}>
       <img
         src={dragonEgg}
         alt={dragonEgg}
@@ -52,7 +52,7 @@ const Found = ({ position }) => {
   };
 
   return (
-    <div className="Mouse" style={stylePosition}>
+    <div className="absolute" style={stylePosition}>
       <img
         src={dragonBaby}
         alt={dragonBaby}
@@ -69,12 +69,12 @@ const App = () => {
   const [xy, setXy] = useState([0, 0]);
   const [movement, setMovement] = useState([0, 0]);
   const [found, setFound] = useState([]);
-  const [finalPosition, setFinalPosition] = useState(null);
+  const [goalPosition, setGoalPosition] = useState(null);
 
   const [, toggle] = useAudio(sound);
 
   const setupGoal = () =>
-    setFinalPosition([
+    setGoalPosition([
       Math.random() * width * 0.9 - iconWidth / 2,
       Math.random() * height * 0.9 - iconHeight / 2,
     ]);
@@ -88,15 +88,15 @@ const App = () => {
 
   useEffect(() => {
     if (
-      !!finalPosition &&
-      Math.abs(xy[0] - finalPosition[0]) < iconWidth &&
-      Math.abs(xy[1] - finalPosition[1]) < iconHeight
+      !!goalPosition &&
+      Math.abs(xy[0] - goalPosition[0]) < iconWidth &&
+      Math.abs(xy[1] - goalPosition[1]) < iconHeight
     ) {
       toggle();
-      setFound([...found, <Found position={[...finalPosition]}></Found>]);
+      setFound([...found, <Found position={[...goalPosition]}></Found>]);
       setupGoal();
     }
-  }, [xy, finalPosition]);
+  }, [xy, goalPosition]);
 
   const onMouseMove = (e) => {
     setMovement([e.movementX, e.movementY]);
@@ -105,10 +105,8 @@ const App = () => {
 
   return (
     <div className="App" onMouseMove={onMouseMove}>
-      <Mouse xy={xy} movement={movement}></Mouse>
-      {!!finalPosition && (
-        <Final position={finalPosition} found={found}></Final>
-      )}
+      <Mouse xy={xy} movement={movement} />
+      {!!goalPosition && <Goal position={goalPosition} found={found} />}
       {found}
     </div>
   );
