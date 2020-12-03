@@ -71,7 +71,7 @@ const App = () => {
   const [found, setFound] = useState([]);
   const [finalPosition, setFinalPosition] = useState(null);
 
-  const [_, toggle] = useAudio(sound);
+  const [, toggle] = useAudio(sound);
 
   const setupGoal = () =>
     setFinalPosition([

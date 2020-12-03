@@ -7,16 +7,15 @@ export const useAudio = (url) => {
   const toggle = () => setPlaying(!playing);
 
   useEffect(() => {
-    console.log(playing);
     playing ? audio.play() : audio.pause();
-  }, [playing]);
+  }, [audio, playing]);
 
   useEffect(() => {
     audio.addEventListener("ended", () => setPlaying(false));
     return () => {
       audio.removeEventListener("ended", () => setPlaying(false));
     };
-  }, []);
+  }, [audio]);
 
   return [playing, toggle];
 };
