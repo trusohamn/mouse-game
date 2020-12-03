@@ -27,10 +27,11 @@ const Mouse = ({ xy, movement }) => {
   );
 };
 
-const Icon = ({ position, icon, scale = 1 }) => {
+const Icon = ({ position, icon, scale = 1, hover = false }) => {
   const stylePosition = {
     top: `${position[1]}px`,
     left: `${position[0]}px`,
+    animation: hover ? `rotation 2s infinite linear` : "",
   };
 
   return (
@@ -54,6 +55,7 @@ const App = () => {
   const [xy, setXy] = useState([0, 0]);
   const [movement, setMovement] = useState([0, 0]);
   const [found, setFound] = useState([]);
+  const [hover, setHover] = useState(false);
   const [goalPosition, setGoalPosition] = useState(null);
 
   const [, toggle] = useAudio(sound);
@@ -77,12 +79,9 @@ const App = () => {
       Math.abs(xy[0] - goalPosition[0]) < iconWidth &&
       Math.abs(xy[1] - goalPosition[1]) < iconHeight
     ) {
-      toggle();
-      setFound([
-        ...found,
-        <Icon position={[...goalPosition]} icon={iconFound} scale={1.6} />,
-      ]);
-      setupNewGoal();
+      setHover(true);
+    } else {
+      setHover(false);
     }
   }, [xy, goalPosition]);
 
@@ -91,10 +90,27 @@ const App = () => {
     setXy([e.clientX, e.clientY]);
   };
 
+  const onMouseClick = (e) => {
+    if (
+      !!goalPosition &&
+      Math.abs(xy[0] - goalPosition[0]) < iconWidth &&
+      Math.abs(xy[1] - goalPosition[1]) < iconHeight
+    ) {
+      toggle();
+      setFound([
+        ...found,
+        <Icon position={[...goalPosition]} icon={iconFound} scale={1.6} />,
+      ]);
+      setupNewGoal();
+    }
+  };
+
   return (
-    <div className="App" onMouseMove={onMouseMove}>
+    <div className="App" onMouseMove={onMouseMove} onClick={onMouseClick}>
       <Mouse xy={xy} movement={movement} />
-      {!!goalPosition && <Icon position={goalPosition} icon={iconGoal} />}
+      {!!goalPosition && (
+        <Icon position={goalPosition} icon={iconGoal} hover={hover} />
+      )}
       {found}
     </div>
   );
