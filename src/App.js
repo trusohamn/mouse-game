@@ -3,7 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import dragon from "./dragon.gif";
 import dragonEgg from "./dragonEgg.png";
-import dragonBaby from "./babyDragon.png";
+import dragonBaby from "./babyDragon.svg";
 import sound from "./assets/sound.mp3";
 
 import { useAudio } from "./hooks";
@@ -99,7 +99,7 @@ const App = () => {
       toggle();
       setFound([
         ...found,
-        <Icon position={[...goalPosition]} icon={iconFound} scale={1.6} />,
+        <Icon position={[...goalPosition]} icon={iconFound} scale={1} />,
       ]);
       setupNewGoal();
     }
