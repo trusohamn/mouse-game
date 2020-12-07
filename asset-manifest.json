@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mouse-game/static/css/main.69ad0fab.chunk.css",
-    "main.js": "/mouse-game/static/js/main.e21d8c0b.chunk.js",
-    "main.js.map": "/mouse-game/static/js/main.e21d8c0b.chunk.js.map",
+    "main.js": "/mouse-game/static/js/main.e30460b8.chunk.js",
+    "main.js.map": "/mouse-game/static/js/main.e30460b8.chunk.js.map",
     "runtime-main.js": "/mouse-game/static/js/runtime-main.38ef251f.js",
     "runtime-main.js.map": "/mouse-game/static/js/runtime-main.38ef251f.js.map",
     "static/js/2.f5f271c6.chunk.js": "/mouse-game/static/js/2.f5f271c6.chunk.js",
@@ -12,7 +12,7 @@
     "index.html": "/mouse-game/index.html",
     "static/css/main.69ad0fab.chunk.css.map": "/mouse-game/static/css/main.69ad0fab.chunk.css.map",
     "static/js/2.f5f271c6.chunk.js.LICENSE.txt": "/mouse-game/static/js/2.f5f271c6.chunk.js.LICENSE.txt",
-    "static/media/babyDragon.ffa4c8dd.png": "/mouse-game/static/media/babyDragon.ffa4c8dd.png",
+    "static/media/babyDragon.0db88392.svg": "/mouse-game/static/media/babyDragon.0db88392.svg",
     "static/media/dragon.6db7f34f.gif": "/mouse-game/static/media/dragon.6db7f34f.gif",
     "static/media/dragonEgg.148d89e9.png": "/mouse-game/static/media/dragonEgg.148d89e9.png",
     "static/media/App.css": "/mouse-game/static/media/fantasy.6c2abf34.jpg",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.38ef251f.js",
     "static/js/2.f5f271c6.chunk.js",
     "static/css/main.69ad0fab.chunk.css",
-    "static/js/main.e21d8c0b.chunk.js"
+    "static/js/main.e30460b8.chunk.js"
   ]
 }
